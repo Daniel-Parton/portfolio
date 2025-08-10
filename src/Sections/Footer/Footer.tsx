@@ -3,13 +3,15 @@ import { ActionIcon, Box, Center, Group, Image, Stack } from '@mantine/core';
 import { BrandIconProps } from '@/components/BrandIcons/BrandIcon.types';
 import { GithubIcon } from '@/components/BrandIcons/GithubIcon';
 import { LinkedInIcon } from '@/components/BrandIcons/LinkedInIcon';
+import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher';
 import { PrimaryColorSwitcher } from '@/components/PrimaryColorSwitcher';
+import classes from './Footer.module.css';
 
 export function Footer() {
   return (
     <Box bg="var(--mantine-primary-color-light)" component="footer">
       <Stack py="xl" className="content-container" gap="md">
-        <Group justify="space-between" align="center" gap="md">
+        <div className={classes.content}>
           <Image
             src="./assets/footer-logo.png"
             alt="logo"
@@ -18,12 +20,13 @@ export function Footer() {
             w={100}
             h="auto"
           />
-          <Group gap="md">
+          <div className={classes.links}>
             <FooterLinkButton href="https://www.linkedin.com/in/dan-part" icon={LinkedInIcon} />
             <FooterLinkButton href="https://github.com/Daniel-Parton" icon={GithubIcon} />
             <PrimaryColorSwitcher />
-          </Group>
-        </Group>
+            <ColorSchemeSwitcher radius="xl" size="xl" className={classes.colorSchemeSwitcher} />
+          </div>
+        </div>
 
         <Center>Made with ❤️ by Daniel Parton</Center>
       </Stack>
@@ -42,7 +45,7 @@ const FooterLinkButton = ({ href, icon }: FooterLinkButtonProps) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      variant="subtle"
+      variant="default"
       size="xl"
       radius="xl"
     >

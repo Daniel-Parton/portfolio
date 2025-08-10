@@ -1,6 +1,6 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import cx from 'clsx';
-import { ArrowDownToDotIcon, ArrowUpFromDot, DownloadIcon, ExternalLinkIcon } from 'lucide-react';
+import { ArrowDownToDotIcon, ArrowUpFromDot, ExternalLinkIcon } from 'lucide-react';
 import {
   ActionIcon,
   Anchor,
@@ -13,11 +13,7 @@ import {
   ThemeIcon,
   Tooltip,
 } from '@mantine/core';
-import { GithubIcon } from '@/components/BrandIcons/GithubIcon';
-import { LinkedInIcon } from '@/components/BrandIcons/LinkedInIcon';
 import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher';
-import { ExternalLinkButton } from '@/components/ExternalLinkButton';
-import { PrimaryColorSwitcher } from '@/components/PrimaryColorSwitcher';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { useNavScrollData } from '@/utils/useNavScrollData';
 import classes from './Navbar.module.css';
@@ -113,6 +109,7 @@ export function Navbar() {
             >
               Resume
             </Button>
+            <ColorSchemeSwitcher size="input-sm" className={classes.colorSchemeSwitcher} />
           </Group>
         </Group>
       </Paper>
@@ -127,16 +124,23 @@ type LogoButtonProps = {
 const LogoButton = ({ activeNavIndex, onClick }: LogoButtonProps) => {
   const noLinkActive = activeNavIndex === 0;
 
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 250);
+  }, []);
+
   return (
     <>
-      <Anchor href="/#" pos="relative" onClick={onClick}>
+      <Anchor href="javascript:void()" pos="relative" onClick={onClick}>
         <Image
           src="./assets/sunnies.png"
           alt="sunglasses"
           height={80}
           width={80}
           className={classes.logoSunnies}
-          mod={{ active: !noLinkActive }}
+          mod={{ active: !noLinkActive, loaded }}
         />
         <ThemeIcon radius="xl" size={50} variant={noLinkActive ? 'light' : 'transparent'}>
           <Image

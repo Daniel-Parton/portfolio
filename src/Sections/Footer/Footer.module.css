@@ -1,0 +1,23 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+   @media (max-width: 370px) {
+    flex-direction: column;
+    justify-content: center;
+   }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.colorSchemeSwitcher {
+  @media (min-width: 460px) {
+    display: none;
+  }
+}

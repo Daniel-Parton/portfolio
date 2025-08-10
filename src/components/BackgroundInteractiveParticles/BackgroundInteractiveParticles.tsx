@@ -20,7 +20,6 @@ export const BackgroundInteractiveParticles = ({
   ease = 50,
   color: _color,
 }: BackgroundInteractiveParticlesProps) => {
-  const { primaryColor } = usePrimaryColor();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);
@@ -30,6 +29,8 @@ export const BackgroundInteractiveParticles = ({
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1;
   const theme = useMantineTheme();
+
+  const primaryColor = theme.primaryColor;
 
   const color = useMemo(() => {
     return parseThemeColor({

@@ -27,7 +27,9 @@
   top: 50%;
   z-index: 2;
   transform: translate(-50%, calc(-50% - 100px));
-  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  &[data-loaded] {
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
 
   &[data-active] {
     transform: translate(-50%, -50%);
@@ -52,4 +54,10 @@
 
 .link {
   border-radius: var(--mantine-radius-md);
+}
+
+.colorSchemeSwitcher {
+  @media (max-width: 460px) {
+    display: none;
+  }
 }
