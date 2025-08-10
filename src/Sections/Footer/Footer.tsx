@@ -10,7 +10,7 @@ export function Footer() {
       <Stack py="xl" className="content-container" gap="md">
         <Group justify="space-between" align="center" gap="md">
           <Image
-            src="/assets/footer-logo.png"
+            src="./assets/footer-logo.png"
             alt="logo"
             height={200}
             width={200}

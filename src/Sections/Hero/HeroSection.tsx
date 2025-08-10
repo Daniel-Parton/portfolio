@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <Section h="100vh" pos="relative" justify="center" className={classes.root}>
       <Image
-        src="/assets/hero.png"
+        src="./assets/hero.png"
         alt="Dan drinking coffee with laptop"
         width={500}
         height={500}

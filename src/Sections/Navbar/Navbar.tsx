@@ -119,7 +119,7 @@ const LogoButton = ({ activeNavIndex, onClick }: LogoButtonProps) => {
     <>
       <Anchor href="/#" pos="relative" onClick={onClick}>
         <Image
-          src="/assets/sunnies.png"
+          src="./assets/sunnies.png"
           alt="sunglasses"
           height={80}
           width={80}
@@ -128,7 +128,7 @@ const LogoButton = ({ activeNavIndex, onClick }: LogoButtonProps) => {
         />
         <ThemeIcon radius="xl" size={50} variant={noLinkActive ? 'light' : 'transparent'}>
           <Image
-            src="/assets/logo.png"
+            src="./assets/logo.png"
             alt="logo"
             height={80}
             width={80}
