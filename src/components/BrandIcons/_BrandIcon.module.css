@@ -1,0 +1,15 @@
+.root {
+  --brand-icon-color: var(--mantine-color-text);
+
+  &[data-path-color-variant="fill"] {
+    path {
+      fill: var(--brand-icon-color);
+    }
+  }
+
+  &[data-path-color-variant='stroke'] {
+    path {
+      stroke: var(--brand-icon-color);
+    }
+  }
+}

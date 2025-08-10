@@ -1,0 +1,55 @@
+.root {
+  display: flex;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  position: fixed;
+  padding: 1rem;
+  align-items: center;
+}
+
+.content {
+  max-height: 80%;
+  gap: 1rem;
+}
+
+.logo {
+  aspect-ratio: 1/ 1;
+  height: 35px;
+  width: auto;
+}
+
+.logoSunnies {
+  width: 20px;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  transform: translate(-50%, calc(-50% - 100px));
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+
+  &[data-active] {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.linksContainer {
+  display: flex;
+  gap: 0.5rem;
+
+  @media (max-width: 510px) {
+    display: none;
+  }
+}
+
+.navButtons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.link {
+  border-radius: var(--mantine-radius-md);
+}

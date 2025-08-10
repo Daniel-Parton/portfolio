@@ -1,0 +1,41 @@
+@import '@mantine/core/styles.layer.css';
+@import '@gfazioli/mantine-marquee/styles.layer.css';
+
+@layer mantine, app;
+
+@layer app {
+
+  @media (max-width: 750px) {
+    :root {
+      --mantine-h1-font-size: 40px !important;
+      --mantine-h2-font-size: 30.5px !important;
+      --mantine-h3-font-size: 26px !important;
+      --mantine-h4-font-size: 21.5px !important;
+      --mantine-h5-font-size: 18.5px !important;
+      --mantine-h6-font-size: 16.5px !important;
+
+      --mantine-font-size-xl: 20px !important;
+      --mantine-font-size-lg: 18px !important;
+      --mantine-font-size-md: 16px !important;
+      --mantine-font-size-sm: 14px !important;
+      --mantine-font-size-xs: 12px !important;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .content-container {
+    @media (min-width: 1200px) {
+      padding-inline: 40px;
+    }
+
+    padding-inline: 20px;
+    margin: 0 auto;
+    max-width: 1220px;
+    width: 100%;
+  }
+}
+
+

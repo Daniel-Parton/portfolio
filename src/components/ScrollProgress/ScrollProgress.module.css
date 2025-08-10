@@ -1,0 +1,9 @@
+.root {
+  position: fixed;
+  height: 3px;
+  border-radius: var(--mantine-radius-xs);
+  z-index: 50;
+  background: var(--mantine-primary-color-filled);
+  inset-inline: 0;
+  transform-origin: 0px 0.5px;
+}
