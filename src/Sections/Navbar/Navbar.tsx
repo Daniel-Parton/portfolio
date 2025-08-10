@@ -12,9 +12,9 @@ import {
   ThemeIcon,
   Tooltip,
 } from '@mantine/core';
-import { PrimaryColorSwitcher } from '@//components/PrimaryColorSwitcher';
-import { ScrollProgress } from '@//components/ScrollProgress';
 import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher';
+import { PrimaryColorSwitcher } from '@/components/PrimaryColorSwitcher';
+import { ScrollProgress } from '@/components/ScrollProgress';
 import { useNavScrollData } from '@/utils/useNavScrollData';
 import classes from './Navbar.module.css';
 
