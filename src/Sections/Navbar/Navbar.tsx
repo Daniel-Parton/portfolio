@@ -1,9 +1,10 @@
 import { MouseEvent } from 'react';
 import cx from 'clsx';
-import { ArrowDownToDotIcon, ArrowUpFromDot } from 'lucide-react';
+import { ArrowDownToDotIcon, ArrowUpFromDot, DownloadIcon, ExternalLinkIcon } from 'lucide-react';
 import {
   ActionIcon,
   Anchor,
+  Button,
   Group,
   Image,
   NavLink,
@@ -12,7 +13,10 @@ import {
   ThemeIcon,
   Tooltip,
 } from '@mantine/core';
+import { GithubIcon } from '@/components/BrandIcons/GithubIcon';
+import { LinkedInIcon } from '@/components/BrandIcons/LinkedInIcon';
 import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher';
+import { ExternalLinkButton } from '@/components/ExternalLinkButton';
 import { PrimaryColorSwitcher } from '@/components/PrimaryColorSwitcher';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { useNavScrollData } from '@/utils/useNavScrollData';
@@ -32,14 +36,13 @@ export function Navbar() {
 
     const link = links.find((x) => x.index === index);
     if (!link) return;
-    window.location.hash = `#${link.id}`;
     link.getNode()?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const goHome = () => {
-    window.history.replaceState(null, '', '/');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
     <>
       <ScrollProgress topOffset={80} className="content-container" />
@@ -89,18 +92,27 @@ export function Navbar() {
             <div className={classes.linksContainer}>
               {links.map((l) => (
                 <NavLink
+                  component="button"
                   active={l.isActive}
                   key={l.id}
                   className={classes.link}
-                  href={`/#${l.id}`}
+                  onClick={() => scrollToSection(l.index)}
                   label={l.label}
                 />
               ))}
             </div>
           </Group>
           <Group align="center" flex="0 0 auto">
-            <PrimaryColorSwitcher />
-            <ColorSchemeSwitcher />
+            <Button
+              size="sm"
+              component="a"
+              href="./assets/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              rightSection={<ExternalLinkIcon size={20} />}
+            >
+              Resume
+            </Button>
           </Group>
         </Group>
       </Paper>

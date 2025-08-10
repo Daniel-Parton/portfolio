@@ -3,6 +3,7 @@ import { ActionIcon, Box, Center, Group, Image, Stack } from '@mantine/core';
 import { BrandIconProps } from '@/components/BrandIcons/BrandIcon.types';
 import { GithubIcon } from '@/components/BrandIcons/GithubIcon';
 import { LinkedInIcon } from '@/components/BrandIcons/LinkedInIcon';
+import { PrimaryColorSwitcher } from '@/components/PrimaryColorSwitcher';
 
 export function Footer() {
   return (
@@ -20,6 +21,7 @@ export function Footer() {
           <Group gap="md">
             <FooterLinkButton href="https://www.linkedin.com/in/dan-part" icon={LinkedInIcon} />
             <FooterLinkButton href="https://github.com/Daniel-Parton" icon={GithubIcon} />
+            <PrimaryColorSwitcher />
           </Group>
         </Group>
 

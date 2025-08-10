@@ -20,7 +20,7 @@ export function HeroSection() {
         </Title>
 
         <Text className={classes.text} maw={580} mx="auto" mt="xl">
-          a self taught full stack developer passionate about creating software that's both powerful
+          A self taught full stack developer passionate about creating software that's both powerful
           and intuitive. I thrive on turning ideas into scalable, reliable applications people love
           to use.
         </Text>

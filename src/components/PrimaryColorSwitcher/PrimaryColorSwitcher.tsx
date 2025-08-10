@@ -15,7 +15,7 @@ export const PrimaryColorSwitcher = () => {
   return (
     <Popover width={200} position="bottom" withArrow shadow="md">
       <Popover.Target>
-        <ActionIcon variant="transparent">
+        <ActionIcon size="xl" variant="default" radius="xl">
           <ColorSwatch
             size={24}
             radius="xl"
