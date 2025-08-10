@@ -52,6 +52,7 @@ export const BrandIconMarqueeItem = ({
       align="center"
       justify="space-between"
       gap="xs"
+      radius="md"
       w={150}
       {...rest}
       c={textColor}

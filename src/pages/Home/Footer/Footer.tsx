@@ -1,32 +1,12 @@
 import { ReactNode, useRef } from 'react';
 import { ActionIcon, Box, Center, Group, Image, Stack } from '@mantine/core';
-import { useWindowEvent } from '@mantine/hooks';
 import { BrandIconProps } from '@/components/BrandIcons/BrandIcon.types';
 import { GithubIcon } from '@/components/BrandIcons/GithubIcon';
 import { LinkedInIcon } from '@/components/BrandIcons/LinkedInIcon';
 
-function getRemainingScrollDistance() {
-  const scrollTop = document.documentElement.scrollTop;
-  const viewportHeight = window.innerHeight;
-  const documentHeight = document.documentElement.scrollHeight;
-
-  const remainingScrollDistance = documentHeight - (scrollTop + viewportHeight);
-  return remainingScrollDistance;
-}
-
 export function Footer() {
-  const ref = useRef<HTMLElement>(null);
-
-  useWindowEvent('scroll', () => {
-    const diff = getRemainingScrollDistance() - 30;
-    if (ref.current) {
-      const translate = diff > 0 ? diff / 2 : 0;
-      ref.current.style.transform = `translateY(${translate}px)`;
-    }
-  });
-
   return (
-    <Box bg="var(--mantine-primary-color-light)" component="footer" ref={ref}>
+    <Box bg="var(--mantine-primary-color-light)" component="footer">
       <Stack py="xl" className="content-container" gap="md">
         <Group justify="space-between" align="center" gap="md">
           <Image

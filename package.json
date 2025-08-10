@@ -4,10 +4,9 @@
   "type": "module",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "vite --config vite/config.dev.mjs",
+    "build": "tsc && vite build --config vite/config.prod.mjs",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint . --cache",
     "stylelint": "stylelint '**/*.css' --cache",

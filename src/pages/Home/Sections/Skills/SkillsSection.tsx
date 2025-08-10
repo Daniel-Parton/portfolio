@@ -130,7 +130,7 @@ const ResponsiveMarque = ({ items, title, viewPortWidth }: ResponsiveMarqueProps
         {title}
       </Title>
       {showMarquee ? (
-        <Marquee w="100%" mt="xl" fadeEdges>
+        <Marquee w="100%" mt="xl">
           {items}
         </Marquee>
       ) : (
