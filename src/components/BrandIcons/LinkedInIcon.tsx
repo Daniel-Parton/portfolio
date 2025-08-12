@@ -1,4 +1,4 @@
-import { BrandIcon, BrandIconMarqueeItem } from './_BrandIcon';
+import { BrandIcon } from './_BrandIcon';
 import { BrandIconProps } from './BrandIcon.types';
 
 export const LinkedInColor = '#0077B7';

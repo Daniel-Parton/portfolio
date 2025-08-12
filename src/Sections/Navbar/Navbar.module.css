@@ -15,34 +15,27 @@
 
 .logo {
   aspect-ratio: 1/ 1;
-  height: 35px;
+  height: calc(35px * var(--mantine-scale));
   width: auto;
 }
 
 .logoSunnies {
-  width: 20px;
+  width: calc(20px * var(--mantine-scale));
   height: auto;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: calc(-100px * var(--mantine-scale));
   z-index: 2;
-  transform: translate(-50%, calc(-50% - 100px));
-  &[data-loaded] {
-    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-  }
-
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   &[data-active] {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, calc(-50% + (125px * var(--mantine-scale))));
   }
 }
 
 .linksContainer {
   display: flex;
   gap: 0.5rem;
-
-  @media (max-width: 400px) {
-    display: none;
-  }
 }
 
 .navButtons {
@@ -57,7 +50,7 @@
 }
 
 .colorSchemeSwitcher {
-  @media (max-width: 460px) {
+  @media (max-width: 330px) {
     display: none;
   }
 }

@@ -22,11 +22,11 @@ export function Section({
 }: SectionProps) {
   const { className: containerClassName, ...containerRest } = containerProps || {};
   const { ref, inViewport } = useInViewport();
-  const [contentVisible, setContentVisible] = useState(false);
+  const [isSeen, setIsSeen] = useState(false);
 
   useEffect(() => {
     if (inViewport) {
-      setContentVisible(true);
+      setIsSeen(true);
     }
   }, [inViewport]);
 
@@ -36,20 +36,20 @@ export function Section({
       aria-label={navData?.label}
       component="section"
       mih={mih}
+      ref={ref}
       className={cx(classes.root, containerClassName)}
       {...containerRest}
     >
       <Stack
-        ref={ref}
         mih={mih}
         className={cx(classes.content, 'content-container', className, {
-          [classes.revealed]: contentVisible,
+          [classes.revealed]: isSeen,
         })}
         {...rest}
       >
         {!!title && (
           <Title w="100%" order={2}>
-            <Highlighter delay={1000} inherit action="underline">
+            <Highlighter inherit action="underline">
               {title}
             </Highlighter>
           </Title>

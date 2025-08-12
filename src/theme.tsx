@@ -6,29 +6,13 @@ import {
   MantineProviderProps,
   MantineThemeOverride,
 } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
 const getTheme = (overrides?: Partial<MantineThemeOverride>) =>
   createTheme({
     primaryColor: 'violet',
     autoContrast: true,
     respectReducedMotion: true,
-    fontSizes: {
-      xl: '25px',
-      lg: '22.5px',
-      md: '20px',
-      sm: '17.5px',
-      xs: '15px',
-    },
-    headings: {
-      sizes: {
-        h1: { fontSize: '60px' },
-        h2: { fontSize: '46px' },
-        h3: { fontSize: '36px' },
-        h4: { fontSize: '30px' },
-        h5: { fontSize: '28px' },
-        h6: { fontSize: '24.5px' },
-      },
-    },
     ...overrides,
   });
 
@@ -60,16 +44,18 @@ const PrimaryColorProvider = ({ children, defaultColor = 'violet' }: PrimaryColo
 const _MantineThemeProvider = ({ children, ...rest }: ThemeProviderProps) => {
   const { primaryColor } = usePrimaryColor();
 
-  const [theme, setTheme] = useState(getTheme({ primaryColor }));
+  const scale = useScale();
+
+  const [theme, setTheme] = useState(getTheme({ primaryColor, scale }));
   useEffect(() => {
-    setTheme(getTheme({ primaryColor }));
-  }, [primaryColor]);
+    setTheme(getTheme({ primaryColor, scale }));
+  }, [primaryColor, scale]);
 
   return (
     <MantineProvider
       defaultColorScheme="dark"
       theme={theme}
-      cssVariablesResolver={(t) => ({
+      cssVariablesResolver={() => ({
         light: {
           '--mantine-color-body': '#efeff4',
         },
@@ -100,4 +86,18 @@ export const ThemeProvider = ({ children, ...rest }: ThemeProviderProps) => {
       <_MantineThemeProvider {...rest}>{children}</_MantineThemeProvider>
     </PrimaryColorProvider>
   );
+};
+
+const useScale = () => {
+  const isMedium = useMediaQuery('(max-width: 750px)');
+  const isSmall = useMediaQuery('(max-width: 550px)');
+
+  switch (true) {
+    case isSmall:
+      return 1;
+    case isMedium:
+      return 1.1;
+    default:
+      return 1.2;
+  }
 };

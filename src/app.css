@@ -1,27 +1,44 @@
 @import '@mantine/core/styles.layer.css';
 @import '@gfazioli/mantine-marquee/styles.layer.css';
 
-@layer mantine, app;
+@layer mantine, mantine_overrides, app;
 
-@layer app {
+@layer mantine_overrides {
+  .lucide {
+    width: var(--mantine-font-size-md);
+    height: var(--mantine-font-size-md);
+  }
 
-  @media (max-width: 750px) {
-    :root {
-      --mantine-h1-font-size: 40px !important;
-      --mantine-h2-font-size: 30.5px !important;
-      --mantine-h3-font-size: 26px !important;
-      --mantine-h4-font-size: 21.5px !important;
-      --mantine-h5-font-size: 18.5px !important;
-      --mantine-h6-font-size: 16.5px !important;
+  .brand-icon {
+    --brand-icon-size: var(--mantine-font-size-md);
+    height: var(--brand-icon-size);
+    width: var(--brand-icon-size);
+  }
 
-      --mantine-font-size-xl: 20px !important;
-      --mantine-font-size-lg: 18px !important;
-      --mantine-font-size-md: 16px !important;
-      --mantine-font-size-sm: 14px !important;
-      --mantine-font-size-xs: 12px !important;
+  .mantine-Button-section {
+    .lucide {
+      width: var(--button-fz, var(--mantine-font-size-md));
+      height: var(--button-fz, var(--mantine-font-size-md));
+    }
+
+    .brand-icon {
+      --brand-icon-size: var(--button-fz, var(--mantine-font-size-md));
     }
   }
 
+  .mantine-ActionIcon-root {
+    .lucide {
+      width: calc(var(--ai-size) * 0.55);
+      height: calc(var(--ai-size) * 0.55);
+    }
+
+    .brand-icon {
+      --brand-icon-size: calc(var(--ai-size) * 0.55);
+    }
+  }
+}
+
+@layer app {
   html {
     scroll-behavior: smooth;
   }
@@ -37,5 +54,3 @@
     width: 100%;
   }
 }
-
-

@@ -1,10 +1,8 @@
-import { MouseEvent, useEffect, useState } from 'react';
+import { MouseEvent } from 'react';
 import cx from 'clsx';
-import { ArrowDownToDotIcon, ArrowUpFromDot, ExternalLinkIcon } from 'lucide-react';
+import { ArrowDownToDotIcon, ArrowUpFromDot } from 'lucide-react';
 import {
   ActionIcon,
-  Anchor,
-  Button,
   Group,
   Image,
   NavLink,
@@ -12,6 +10,7 @@ import {
   Stack,
   ThemeIcon,
   Tooltip,
+  UnstyledButton,
 } from '@mantine/core';
 import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher';
 import { ScrollProgress } from '@/components/ScrollProgress';
@@ -31,7 +30,10 @@ export function Navbar() {
     }
 
     const link = links.find((x) => x.index === index);
-    if (!link) return;
+    if (!link) {
+      return;
+    }
+
     link.getNode()?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -99,16 +101,6 @@ export function Navbar() {
             </div>
           </Group>
           <Group align="center" flex="0 0 auto">
-            <Button
-              size="sm"
-              component="a"
-              href="./assets/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              rightSection={<ExternalLinkIcon size={20} />}
-            >
-              Resume
-            </Button>
             <ColorSchemeSwitcher size="input-sm" className={classes.colorSchemeSwitcher} />
           </Group>
         </Group>
@@ -118,29 +110,22 @@ export function Navbar() {
 }
 
 type LogoButtonProps = {
-  onClick: (e: MouseEvent<HTMLAnchorElement>) => void;
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
   activeNavIndex: number;
 };
 const LogoButton = ({ activeNavIndex, onClick }: LogoButtonProps) => {
   const noLinkActive = activeNavIndex === 0;
 
-  const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoaded(true);
-    }, 250);
-  }, []);
-
   return (
     <>
-      <Anchor href="javascript:void()" pos="relative" onClick={onClick}>
+      <UnstyledButton pos="relative" onClick={onClick}>
         <Image
           src="./assets/sunnies.png"
           alt="sunglasses"
           height={80}
           width={80}
           className={classes.logoSunnies}
-          mod={{ active: !noLinkActive, loaded }}
+          mod={{ active: !noLinkActive }}
         />
         <ThemeIcon radius="xl" size={50} variant={noLinkActive ? 'light' : 'transparent'}>
           <Image
@@ -151,7 +136,7 @@ const LogoButton = ({ activeNavIndex, onClick }: LogoButtonProps) => {
             className={classes.logo}
           />
         </ThemeIcon>
-      </Anchor>
+      </UnstyledButton>
     </>
   );
 };

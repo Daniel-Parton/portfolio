@@ -1,4 +1,4 @@
-import { Divider, List, Stack, Text, Title } from '@mantine/core';
+import { Divider, List, Stack, Text } from '@mantine/core';
 import { Section } from '@/components/Section';
 import { AllExperience, ExperienceItem, getExperienceDateDisplay } from './ExperienceSection.data';
 
@@ -19,7 +19,7 @@ type ItemProps = {
   isLast: boolean;
 };
 const Item = ({ experience, isLast }: ItemProps) => {
-  const hasAchievements = experience.keyAchievements?.length! > 0;
+  const hasAchievements = !!experience.keyAchievements && experience.keyAchievements.length! > 0;
 
   return (
     <>
@@ -39,9 +39,17 @@ const Item = ({ experience, isLast }: ItemProps) => {
               Key Achievements
             </Text>
 
-            <List maw="98%">
+            <List spacing="sm" maw="98%">
               {experience.keyAchievements!.map((a) => (
-                <List.Item key={a}>{a}</List.Item>
+                <List.Item key={a.description}>
+                  {!!a.label && (
+                    <>
+                      <strong>{a.label}</strong>
+                      {'. '}
+                    </>
+                  )}
+                  {a.description}
+                </List.Item>
               ))}
             </List>
           </Stack>

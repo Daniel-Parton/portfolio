@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Marquee } from '@gfazioli/mantine-marquee';
-import { Group, Stack, Text, Title } from '@mantine/core';
+import { Group, Stack, Text, Title, useMantineTheme } from '@mantine/core';
 import { AngularMarqueeItem } from '@/components/BrandIcons/AngularIcon';
 import { AwsMarqueeItem } from '@/components/BrandIcons/AwsIcon';
 import { AzureMarqueeItem } from '@/components/BrandIcons/AzureIcon';
@@ -33,7 +33,7 @@ export function SkillsSection() {
         <Stack>
           <Text>
             With over{' '}
-            <Highlighter delay={2000} action="underline">
+            <Highlighter delay={500} action="underline">
               10 years of experience
             </Highlighter>{' '}
             building enterprise-scale applications, I handle the full software lifecycle. This
@@ -43,7 +43,7 @@ export function SkillsSection() {
           </Text>
           <Text>
             On the backend, I craft scalable APIs and services using{' '}
-            <Highlighter delay={2500} action="underline">
+            <Highlighter delay={750} action="underline">
               .NET and C#
             </Highlighter>
             , often applying architectural patterns like event sourcing to handle complex data flows
@@ -51,14 +51,14 @@ export function SkillsSection() {
           </Text>
           <Text>
             On the frontend, I build intuitive, dynamic interfaces with{' '}
-            <Highlighter delay={3000} action="underline">
+            <Highlighter delay={1000} action="underline">
               React, JavaScript, HTML, and CSS
             </Highlighter>
             , creating experiences that are both engaging and performant.
           </Text>
           <Text>
             In the cloud, I have architected solutions across{' '}
-            <Highlighter delay={3500} action="underline">
+            <Highlighter delay={1250} action="underline">
               AWS, Azure, and GCP
             </Highlighter>
             , implementing CI/CD pipelines, infrastructure automation, and containerized
@@ -123,7 +123,11 @@ type ResponsiveMarqueProps = {
 const itemWidth = 150;
 const itemGap = 16;
 const ResponsiveMarque = ({ items, title, viewPortWidth }: ResponsiveMarqueProps) => {
-  const showMarquee = items.length * itemWidth + (items.length - 1) * itemGap > viewPortWidth;
+  const theme = useMantineTheme();
+
+  const showMarquee =
+    items.length * (itemWidth * theme.scale) + (items.length - 1) * (itemGap * theme.scale) >
+    viewPortWidth;
   return (
     <div>
       <Title order={3} mb="md">

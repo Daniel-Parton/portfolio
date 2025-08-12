@@ -1,11 +1,11 @@
 .root {
-  --hero-title-font-size: 85px;
-
- @media (max-width: 900px) {
-    --hero-title-font-size: 70px;
-  }
+  --hero-title-font-size: 60px;
 
   @media (max-width: 750px) {
+    --hero-title-font-size: 50px;
+  }
+
+  @media (max-width: 550px) {
     --hero-title-font-size: 40px;
   }
 
@@ -24,14 +24,19 @@
   height: 100%;
   object-fit: contain;
   max-width: min(90%, 750px);
+  user-select: none;
+  pointer-events: none;
 }
 
 .title {
   z-index: 1;
-  font-size: var(--hero-title-font-size);
+  font-size: calc(var(--hero-title-font-size) * var(--mantine-scale));
+}
+
+.wave {
+  font-size: calc(var(--hero-title-font-size) * 0.75 * var(--mantine-scale));
 }
 
 .text {
   z-index: 1;
-  font-size: var(--hero-text-font-size);
 }
