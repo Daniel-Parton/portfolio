@@ -40,7 +40,14 @@ export function SplashScreen({ onFinish }: SplashScreenProps) {
   }, []);
 
   return (
-    <Section mih="100vh" pos="relative" align="center" justify="center" className={classes.root}>
+    <Section
+      mih="100vh"
+      pos="relative"
+      align="center"
+      justify="center"
+      withFadeIn={false}
+      className={classes.root}
+    >
       <AnimatedCircularProgressBar value={value}>
         <div className={cx(classes.logoWrapper, className)} style={style}>
           <Image

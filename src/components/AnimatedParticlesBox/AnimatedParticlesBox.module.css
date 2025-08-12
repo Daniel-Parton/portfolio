@@ -20,25 +20,12 @@
   &:before {
     display: none;
     top: -85%;
-    background-image: radial-gradient(
-        circle,
-        var(--particle-color) 20%,
-        transparent 20%
-      ),
-      radial-gradient(
-        circle,
-        transparent 20%,
-        var(--particle-color) 20%,
-        transparent 30%
-      ),
+    background-image:
+      radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
+      radial-gradient(circle, transparent 20%, var(--particle-color) 20%, transparent 30%),
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
-      radial-gradient(
-        circle,
-        transparent 10%,
-        var(--particle-color) 15%,
-        transparent 20%
-      ),
+      radial-gradient(circle, transparent 10%, var(--particle-color) 15%, transparent 20%),
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
@@ -58,18 +45,10 @@
   &:after {
     display: none;
     bottom: -75%;
-    background-image: radial-gradient(
-        circle,
-        var(--particle-color) 20%,
-        transparent 20%
-      ),
+    background-image:
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
-      radial-gradient(
-        circle,
-        transparent 10%,
-        var(--particle-color) 15%,
-        transparent 20%
-      ),
+      radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, var(--particle-color) 15%, transparent 20%),
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),
       radial-gradient(circle, var(--particle-color) 20%, transparent 20%),

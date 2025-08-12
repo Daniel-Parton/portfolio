@@ -2,16 +2,14 @@
   overflow: hidden;
 }
 
-
 .logoWrapper {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 38px;
-  height: 38px;
+  width: calc(38px * var(--mantine-scale));
+  height: calc(38px * var(--mantine-scale));
   border-radius: 50%;
-
   ::before {
     content: '';
     position: absolute;
@@ -21,10 +19,7 @@
     left: 50%;
 
     transform: translate(-50%, -50%);
-    background-color: light-dark(
-      var(--mantine-color-gray-4),
-      var(--mantine-color-dark-6)
-    );
+    background-color: light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-6));
     border-radius: 50%;
     z-index: 0;
     animation: pulse 0.9s ease-out infinite;
@@ -72,7 +67,6 @@
     transform: translate(-50%, -50%) scale(1);
   }
 }
-
 
 @keyframes grow-bounce {
   0% {

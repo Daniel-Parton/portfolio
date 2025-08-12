@@ -10,6 +10,7 @@ export interface SectionProps extends StackProps {
   navData?: { id: string; label: string };
   title?: string;
   containerProps?: StackProps;
+  withFadeIn?: boolean;
 }
 export function Section({
   children,
@@ -18,6 +19,7 @@ export function Section({
   mih = '100vh',
   title,
   containerProps,
+  withFadeIn = true,
   ...rest
 }: SectionProps) {
   const { className: containerClassName, ...containerRest } = containerProps || {};
@@ -42,6 +44,7 @@ export function Section({
     >
       <Stack
         mih={mih}
+        data-fade-in={withFadeIn}
         className={cx(classes.content, 'content-container', className, {
           [classes.revealed]: isSeen,
         })}
