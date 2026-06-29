@@ -1,27 +1,12 @@
 import { ReactNode } from 'react';
 import { Marquee } from '@gfazioli/mantine-marquee';
 import { Group, Stack, Text, Title, useMantineTheme } from '@mantine/core';
-import { AngularMarqueeItem } from '@/components/BrandIcons/AngularIcon';
-import { AwsMarqueeItem } from '@/components/BrandIcons/AwsIcon';
-import { AzureMarqueeItem } from '@/components/BrandIcons/AzureIcon';
-import { CSharpMarqueeItem } from '@/components/BrandIcons/CSharpIcon';
-import { DockerMarqueeItem } from '@/components/BrandIcons/DockerIcon';
-import { DotNetMarqueeItem } from '@/components/BrandIcons/DotNetIcon';
-import { GcpMarqueeItem } from '@/components/BrandIcons/GcpIcon';
-import { GithubMarqueeItem } from '@/components/BrandIcons/GithubIcon';
-import { JavascriptMarqueeItem } from '@/components/BrandIcons/JavascriptIcon';
-import { MantineMarqueeItem } from '@/components/BrandIcons/MantineIcon';
-import { NextJsMarqueeItem } from '@/components/BrandIcons/NextJsIcon';
-import { NextraMarqueeItem } from '@/components/BrandIcons/NextraIcon';
-import { NodeJsMarqueeItem } from '@/components/BrandIcons/NodeJsIcon';
-import { PostgreSqlMarqueeItem } from '@/components/BrandIcons/PostgreSqlIcon';
-import { ReactMarqueeItem } from '@/components/BrandIcons/ReactIcon';
-import { ReactQueryMarqueeItem } from '@/components/BrandIcons/ReactQueryIcon';
-import { SalesforceMarqueeItem } from '@/components/BrandIcons/SalesforceIcon';
-import { TerraformMarqueeItem } from '@/components/BrandIcons/TerraformIcon';
 import { Highlighter } from '@/components/Highlighter';
 import { Section } from '@/components/Section';
+import { ResumeProfileData } from '@/data';
 import { useMeasure } from '@/utils/useMeasure';
+import { getSkillMarqueeItems } from './capabilityMarqueeData';
+import classes from './SkillsSection.module.css';
 
 export function SkillsSection() {
   const container = useMeasure();
@@ -36,77 +21,56 @@ export function SkillsSection() {
             <Highlighter delay={500} action="underline">
               10 years of experience
             </Highlighter>{' '}
-            building enterprise-scale applications, I handle the full software lifecycle. This
-            includes scoping ideas and defining requirements, coding robust front-end and back-end
-            solutions, and designing CI/CD pipelines and DevOps processes to deploy seamlessly to
-            the cloud.
+            delivering enterprise-scale applications, I work across ambiguous requirements,
+            architecture trade-offs, implementation, mentoring, and stakeholder communication. I
+            stay hands-on while helping teams modernize systems and deliver maintainable software
+            into production.
           </Text>
           <Text>
-            On the backend, I craft scalable APIs and services using{' '}
+            On the backend, I design scalable APIs, distributed systems, and event-driven services
+            using{' '}
             <Highlighter delay={750} action="underline">
               .NET and C#
             </Highlighter>
-            , often applying architectural patterns like event sourcing to handle complex data flows
-            and ensure system reliability.
+            , applying patterns like microservices, domain-driven design, event sourcing,
+            partitioned processing, distributed caching, and observability to support reliable
+            production workloads.
           </Text>
           <Text>
             On the frontend, I build intuitive, dynamic interfaces with{' '}
             <Highlighter delay={1000} action="underline">
-              React, JavaScript, HTML, and CSS
+              React, TypeScript, JavaScript, HTML, and CSS
             </Highlighter>
-            , creating experiences that are both engaging and performant.
+            , including customer-facing applications, workflow builders, and shared component
+            platforms that align product, engineering, and design teams.
           </Text>
           <Text>
             In the cloud, I have architected solutions across{' '}
             <Highlighter delay={1250} action="underline">
               AWS, Azure, and GCP
             </Highlighter>
-            , implementing CI/CD pipelines, infrastructure automation, and containerized
-            deployments. By applying design principles like SOLID and Domain-Driven Design, I ensure
-            every solution is maintainable, scalable, and ready for long-term success.
+            , implementing CI/CD pipelines, infrastructure automation, and containerized deployments
+            with Docker and modern DevOps practices.
           </Text>
           <Text>
-            I'm always eager to learn new things. Here are some of the technologies I work with:
+            I also use AI-assisted tooling where it has a practical job: accelerating
+            implementation, code review, documentation, and migration work, including custom coding
+            skills for internal engineering teams.
+          </Text>
+          <Text>
+            I'm always eager to learn new things. Here are the technologies I work across:
           </Text>
         </Stack>
         {container.data.hasBounds && (
           <>
-            <ResponsiveMarque
-              items={[
-                <AngularMarqueeItem key="angular" />,
-                <JavascriptMarqueeItem key="js" />,
-                <MantineMarqueeItem key="mantine" />,
-                <NextJsMarqueeItem key="nextjs" />,
-                <NextraMarqueeItem key="nextra" />,
-                <NodeJsMarqueeItem key="nodejs" />,
-                <ReactMarqueeItem key="react" />,
-                <ReactQueryMarqueeItem key="react-query" />,
-              ]}
-              title="Frontend"
-              viewPortWidth={viewportWidth}
-            />
-            <ResponsiveMarque
-              items={[
-                <CSharpMarqueeItem key="csharp" />,
-                <DotNetMarqueeItem key="dotnet" />,
-                <PostgreSqlMarqueeItem key="postgresql" />,
-              ]}
-              title="Backend"
-              viewPortWidth={viewportWidth}
-            />
-            <ResponsiveMarque
-              items={[
-                <AwsMarqueeItem key="aws" />,
-                <DockerMarqueeItem key="docker" />,
-                <GcpMarqueeItem key="gcp" />,
-                <GithubMarqueeItem key="github" />,
-                <AzureMarqueeItem key="azure" />,
-                <SalesforceMarqueeItem key="salesforce" />,
-                <TerraformMarqueeItem key="terraform" />,
-              ]}
-              title="Infrastructure"
-              viewPortWidth={viewportWidth}
-            />
+            {ResumeProfileData.skillGroups.map((skillGroup) => (
+              <ResponsiveMarque
+                key={skillGroup.label}
+                items={getSkillMarqueeItems(skillGroup.skills)}
+                title={skillGroup.label}
+                viewPortWidth={viewportWidth}
+              />
+            ))}
           </>
         )}
       </Stack>
@@ -134,9 +98,11 @@ const ResponsiveMarque = ({ items, title, viewPortWidth }: ResponsiveMarqueProps
         {title}
       </Title>
       {showMarquee ? (
-        <Marquee w="100%" mt="xl">
-          {items}
-        </Marquee>
+        <div className={classes.marqueeViewport}>
+          <Marquee w="100%" mt="xl">
+            {items}
+          </Marquee>
+        </div>
       ) : (
         <Group gap="md">{items}</Group>
       )}

@@ -1,6 +1,7 @@
 import { Divider, List, Stack, Text } from '@mantine/core';
 import { Section } from '@/components/Section';
-import { AllExperience, ExperienceItem, getExperienceDateDisplay } from './ExperienceSection.data';
+import { AllExperience, ExperienceItem } from '@/data';
+import { getExperienceDateDisplay } from '@/utils/experienceDates';
 
 export function ExperienceSection() {
   return (
@@ -33,6 +34,11 @@ const Item = ({ experience, isLast }: ItemProps) => {
           </Text>
         </Stack>
         <Text>{experience.summary}</Text>
+        {!!experience.technologies?.length && (
+          <Text size="sm" c="dimmed">
+            <strong>Stack:</strong> {experience.technologies.join(', ')}
+          </Text>
+        )}
         {hasAchievements && (
           <Stack gap="sm">
             <Text size="lg" lh={1.1} fw={600}>

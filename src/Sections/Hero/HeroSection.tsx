@@ -5,6 +5,7 @@ import { GithubIcon } from '@/components/BrandIcons/GithubIcon';
 import { LinkedInIcon } from '@/components/BrandIcons/LinkedInIcon';
 import { Section } from '@/components/Section';
 import { WaveEmoji } from '@/components/WaveEmoji';
+import { ResumeProfileData } from '@/data';
 import classes from './HeroSection.module.css';
 
 export function HeroSection() {
@@ -24,9 +25,7 @@ export function HeroSection() {
         </Title>
 
         <Text className={classes.text} maw={580} mx="auto" mt="xl">
-          A self taught full stack developer passionate about creating software that's both powerful
-          and intuitive. I thrive on turning ideas into scalable, reliable applications people love
-          to use.
+          {ResumeProfileData.summary}
         </Text>
       </Stack>
       <Stack justify="center" align="center" gap="lg">

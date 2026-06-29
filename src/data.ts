@@ -1,5 +1,3 @@
-import { format } from 'date-fns/format';
-
 export type ExperienceItem = {
   employer: string;
   position: string;
@@ -7,7 +5,126 @@ export type ExperienceItem = {
   summary: string;
   startDate: string;
   endDate?: string;
+  technologies?: string[];
   keyAchievements?: { label?: string; description: string }[];
+};
+
+export const ResumeSkillGroups = [
+  {
+    label: 'Frontend',
+    skills: ['React', 'TypeScript', 'JavaScript', 'Next.js', 'Mantine', 'Nextra', 'HTML5', 'CSS'],
+  },
+  {
+    label: 'Backend',
+    skills: ['.NET', 'C#', 'Node.js', 'PostgreSQL', 'Redis', 'OpenAPI', 'ReactiveX'],
+  },
+  {
+    label: 'Infrastructure',
+    skills: [
+      'AWS',
+      'Azure',
+      'GCP',
+      'Docker',
+      'Terraform',
+      'GitHub Actions',
+      'Octopus Deploy',
+      'OpenTelemetry',
+      'GitHub Copilot',
+    ],
+  },
+] as const;
+
+export type ResumeSkill = (typeof ResumeSkillGroups)[number]['skills'][number];
+
+export type ResumeProfile = {
+  name: string;
+  headline: string;
+  summary: string;
+  highlights: string[];
+  skillGroups: typeof ResumeSkillGroups;
+};
+
+export type ResumeContact = {
+  phone: string;
+  email: string;
+  website: string;
+};
+
+export const ResumeContactData: ResumeContact = {
+  phone: '+61 432 520 907',
+  email: 'daniel.parton@hotmail.com',
+  website: 'https://daniel-parton.github.io/portfolio',
+};
+
+export const ResumeProfileData: ResumeProfile = {
+  name: 'Daniel Parton',
+  headline: 'Senior Full-Stack Engineering Lead',
+  summary:
+    'Senior full-stack engineering leader with 10+ years of experience designing and delivering cloud-native enterprise applications, distributed .NET services, React platforms, and AI-assisted engineering workflows. I combine hands-on implementation with technical leadership, helping teams modernize complex systems, improve delivery practices, and build secure, scalable software across AWS, Azure, and GCP.',
+  highlights: [
+    'Technical leadership across architecture, implementation, mentoring, and delivery.',
+    'Distributed .NET microservices, event-driven processing, real-time synchronization, and cloud-native application modernization.',
+    'React and TypeScript platform delivery, including shared component libraries and design-system adoption.',
+    'AI-assisted development workflows, multi-agent systems, LLM-ready documentation, and developer productivity tooling.',
+    'Technical discovery, stakeholder advisory, CI/CD, infrastructure automation, observability, testing, and production-quality delivery practices.',
+  ],
+  skillGroups: ResumeSkillGroups,
+};
+
+export const HaulXExperience: ExperienceItem = {
+  employer: 'Fortescue',
+  position: 'Software Squad Lead (HaulX)',
+  startDate: '2025-09-01',
+  summary:
+    'HaulX is an enterprise fleet platform for manned and autonomous mining operations. I lead AWS-hosted Offboard .NET microservices, autonomous asset control services, telemetry workflows, and React apps for controllers/operators while staying hands-on across architecture, modernization, and delivery.',
+  technologies: [
+    'AWS',
+    '.NET',
+    'C#',
+    'React',
+    'TypeScript',
+    'Rx.NET',
+    'Event-Driven Architecture',
+    'Microservices',
+    'Base UI',
+    'Fumadocs',
+    'npm',
+    'Docker Swarm',
+    'Octopus Deploy',
+    'Azure DevOps',
+  ],
+  keyAchievements: [
+    {
+      label: 'Lead autonomous asset platform delivery',
+      description:
+        'Lead the design and delivery of backend services and platform capabilities for autonomous mining operations across Offboard systems and onboard computers.',
+    },
+    {
+      label: 'Rewrite core autonomous asset control service',
+      description:
+        'Currently leading the rewrite of the service synchronizing live tasks, permissions, commands, and operational state with autonomous assets.',
+    },
+    {
+      label: 'Improved distributed event processing performance',
+      description:
+        'Designed partitioned command and event queues for internal event-driven processing, increasing throughput while preserving ordering guarantees for asset-specific workloads.',
+    },
+    {
+      label: 'Introduced reactive in-memory data flows',
+      description:
+        'Applied Rx observables over in-memory stores to improve synchronization of active tasks, permissions, and live asset state for downstream services.',
+    },
+    {
+      label: 'Built shared UI library',
+      description:
+        'Partnered with UI/UX to replace legacy HaulX UI with a Figma-aligned React library, npm packages, live docs, and llm.txt/coding-agent migration guidance.',
+    },
+    {
+      label: 'Owned squad architecture and hiring',
+      description:
+        'Drove architecture for large HaulX features, translated discovery into tickets, ran client stakeholder closeouts, and interviewed architect/developer hires.',
+    },
+  ],
 };
 
 export const KomoExperience: ExperienceItem = {
@@ -15,8 +132,21 @@ export const KomoExperience: ExperienceItem = {
   position: 'Lead Developer',
   website: 'https://komo.tech',
   startDate: '2021-02-01',
+  endDate: '2025-09-01',
   summary:
-    'Komo is a gamified marketing SaaS that generates leads and engages audiences through digital experiences. I lead a team of five developers.',
+    'Komo is a gamified marketing SaaS platform for lead generation and audience engagement. I provided technical leadership for a team of five engineers while remaining hands-on across architecture, implementation, mentoring, and delivery.',
+  technologies: [
+    '.NET',
+    'React',
+    'TypeScript',
+    'Next.js',
+    'PostgreSQL',
+    'Redis',
+    'OpenTelemetry',
+    'GitHub Actions',
+    'Docker',
+    'AI Agents',
+  ],
   keyAchievements: [
     {
       label: 'Architected and modernized the platform',
@@ -41,12 +171,12 @@ export const KomoExperience: ExperienceItem = {
     {
       label: 'Developed AI content generation system',
       description:
-        'Developed a multi-agent orchestrated AI chatbot that generated interactive game/content experiences, built necessary data schemas, adapted to brand colors/data, and offered real-time insights and recommendations.',
+        'Developed a multi-agent AI content generation system that produced interactive campaign experiences, adapted outputs to customer brand data, and provided real-time insights and recommendations.',
     },
     {
       label: 'Launched the Data Feeds product',
       description:
-        'Conceived and delivered the Data Feeds product, enabling multi-page, screen-size–specific layouts with text, images, videos, and live data blocks such as Q&A feeds, leaderboards, and poll results. This innovation elevated live events and secured new business opportunities.',
+        'Conceived and delivered the Data Feeds product, enabling multi-page, screen-size-specific layouts with text, images, videos, and live data blocks such as Q&A feeds, leaderboards, and poll results. This innovation elevated live events and secured new business opportunities.',
     },
     {
       label: 'Built new customer integration paths',
@@ -83,7 +213,8 @@ const Bhp1Experience: ExperienceItem = {
   startDate: '2020-10-01',
   endDate: '2021-02-01',
   summary:
-    "I Contributed to BHP's Dash project, which equips fitters with devices containing installation instructions and integrated sensors, transmitting data to a web platform accessible via device Wi-Fi.",
+    "Contributed to BHP's Dash project, which equips fitters with devices containing installation instructions and integrated sensors, transmitting data to a web platform accessible via device Wi-Fi.",
+  technologies: ['.NET Core', 'C#', 'React', 'Docker', 'Azure DevOps', 'InfluxDB'],
   keyAchievements: [
     {
       label: 'Optimized sensor data processing pipeline',
@@ -115,7 +246,8 @@ const CashConvertersExperience: ExperienceItem = {
   startDate: '2019-07-01',
   endDate: '2020-10-01',
   summary:
-    'I Worked as a full-stack developer in the Personal Finance team, responsible for the loan application process and supporting services.',
+    'Worked as a full-stack developer in the Personal Finance team, responsible for the loan application process and supporting services.',
+  technologies: ['.NET', 'C#', 'TypeScript', 'CQRS', 'Rebus', 'Cypress', 'CI/CD'],
   keyAchievements: [
     {
       label: 'Built event-driven messaging infrastructure',
@@ -148,6 +280,7 @@ const Bhp2Experience: ExperienceItem = {
   endDate: '2019-07-01',
   summary:
     'During my short contract role, I led the rewriting of small applications from .NET/AngularJS to React/.NET Core, with a focus on mobilization and resource allocation for mine shutdowns.',
+  technologies: ['.NET Core', 'C#', 'React', 'TypeScript', 'CQRS', 'Mediator'],
   keyAchievements: [
     {
       label: 'Pioneered TypeScript adoption in React projects',
@@ -169,7 +302,8 @@ const DiversusExperience: ExperienceItem = {
   startDate: '2018-08-01',
   endDate: '2019-04-01',
   summary:
-    'Diversus provides software solutions as a service to several organisations mostly in the C# .Net space. I worked as a full stack developer creating solutions for the front and back end of bespoke web applications.',
+    'Diversus provides software solutions as a service to several organisations mostly in the C# .NET space. I worked as a full-stack developer creating solutions for the front and back end of bespoke web applications.',
+  technologies: ['C#', '.NET', 'JavaScript', 'SQL'],
 };
 
 const ClickhomeExperience: ExperienceItem = {
@@ -179,10 +313,12 @@ const ClickhomeExperience: ExperienceItem = {
   startDate: '2016-09-01',
   endDate: '2018-08-01',
   summary:
-    'ClickHome provides enterprise level project management software for home builders. I worked as a full stack developer using C# .Net and AngularJS to build new features to their core application.',
+    'ClickHome provides enterprise-level project management software for home builders. I worked as a full-stack developer using C# .NET and AngularJS to build new features for their core application.',
+  technologies: ['C#', '.NET', 'AngularJS', 'JavaScript', 'SQL'],
 };
 
 export const AllExperience: ExperienceItem[] = [
+  HaulXExperience,
   KomoExperience,
   Bhp1Experience,
   CashConvertersExperience,
@@ -191,16 +327,8 @@ export const AllExperience: ExperienceItem[] = [
   ClickhomeExperience,
 ];
 
-export const getExperienceDateDisplay = ({
-  startDate,
-  endDate,
-}: Pick<ExperienceItem, 'startDate' | 'endDate'>) => {
-  const parts: string[] = [format(startDate, 'MMM yyyy')];
-  if (endDate) {
-    parts.push(format(endDate, 'MMM yyyy'));
-  } else {
-    parts.push('Present');
-  }
-
-  return parts.join(' - ');
+export const ResumeData = {
+  profile: ResumeProfileData,
+  contact: ResumeContactData,
+  experience: AllExperience,
 };

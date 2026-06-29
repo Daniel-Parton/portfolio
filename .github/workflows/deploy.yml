@@ -16,11 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Install 💻
-        run: yarn
+        run: pnpm install --frozen-lockfile
+
+      - name: Install resume PDF browser 🌐
+        run: pnpm run generate:resume:setup
 
       - name: Build 🔨
-        run: yarn build
+        run: pnpm build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
