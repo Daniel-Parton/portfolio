@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Daniel Parton Resume</title>
+    <style>
+      :root {
+        --accent: #2d7f83;
+        --accent-soft: #e7f2f2;
+        --accent-line: #bed7d9;
+        --ink: #000000;
+        --muted: #4b5b68;
+        --paper: #fbfcfb;
+        --page: #eef3f3;
+        --rule: #d9e3e4;
+        --section: #315b72;
+      }
+
+      @page {
+        size: A4;
+        margin: 34px 38px 38px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "Aptos Display", Aptos, "Segoe UI Variable", "Segoe UI", "Helvetica Neue", Arial,
+          sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      @media screen {
+        body {
+          background: var(--page);
+          padding: 34px 38px 38px;
+        }
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .resume {
+        position: relative;
+        background: var(--paper);
+      }
+
+      .header {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 24px;
+        padding: 20px 28px 20px 28px;
+        justify-content: space-between;
+      }
+
+      .header > :not(.header-frame) {
+        position: relative;
+        z-index: 1;
+      }
+
+      .header-frame {
+        position: absolute;
+        width: 58px;
+        height: 54px;
+        pointer-events: none;
+      }
+
+      .header-frame-bottom-right {
+        bottom: 0;
+        right: 0;
+        width: 66px;
+        border-right: 2px solid var(--accent);
+        border-bottom: 2px solid var(--accent);
+        border-radius: 0 0 12px 0;
+      }
+
+      .header-frame-top-left {
+        top: 0;
+        left: 0;
+        border-top: 2px solid var(--accent);
+        border-left: 2px solid var(--accent);
+        border-radius: 12px 0 0 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        color: var(--ink);
+        font-size: 42px;
+        font-weight: 850;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .headline {
+        margin-top: 8px;
+        color: var(--section);
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .contact {
+        align-self: end;
+        display: grid;
+        gap: 8px;
+        min-width: 270px;
+        color: var(--muted);
+        font-size: 13px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-item {
+        display: grid;
+        grid-template-columns: 25px 1fr;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .contact-icon {
+        display: grid;
+        width: 25px;
+        height: 25px;
+        place-items: center;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border: 1px solid var(--accent-line);
+        border-radius: 999px;
+      }
+
+      .contact-icon svg {
+        display: block;
+        width: 13px;
+        height: 13px;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+      }
+
+      .contact-value {
+        color: var(--ink);
+      }
+
+      section {
+        padding-top: 22px;
+      }
+
+      .section-title {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 11px;
+        align-items: center;
+        margin-bottom: 8px;
+        color: var(--section);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+      }
+
+      .section-title::after {
+        display: block;
+        height: 1px;
+        background: linear-gradient(90deg, var(--accent-line), transparent);
+        content: "";
+      }
+
+      .summary {
+        color: var(--ink);
+        font-size: 13px;
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 28px;
+      }
+
+      .highlight-list,
+      .achievement-list {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .highlight-list li,
+      .achievement-list li {
+        position: relative;
+        padding-left: 14px;
+      }
+
+      .highlight-list li::before,
+      .achievement-list li::before {
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        content: "•";
+        font-weight: 800;
+      }
+
+      .skill-groups {
+        display: grid;
+        gap: 9px;
+      }
+
+      .skill-group {
+        break-inside: avoid;
+      }
+
+      .skill-label {
+        margin-bottom: 4px;
+        color: var(--section);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .skills {
+        color: var(--ink);
+        font-size: 13px;
+      }
+
+      .experience-list {
+        display: grid;
+        gap: 16px;
+      }
+
+      .experience-item {
+        break-inside: avoid;
+        padding-top: 16px;
+        border-top: 1px solid var(--rule);
+      }
+
+      .experience-item:first-child {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .experience-heading {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: baseline;
+      }
+
+      h3 {
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.15;
+      }
+
+      .date-range {
+        color: var(--section);
+        font-size: 13px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .job-summary {
+        margin-top: 6px;
+        color: var(--ink);
+      }
+
+      .stack {
+        margin-top: 7px;
+        color: var(--ink);
+        font-size: 13px;
+      }
+
+      .stack strong,
+      .achievement-list strong {
+        color: var(--section);
+      }
+
+      .achievement-list {
+        gap: 5px;
+        margin-top: 8px;
+        color: var(--ink);
+        font-size: 13px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main class="resume">
+      <header class="header">
+        <span class="header-frame header-frame-top-left" aria-hidden="true"></span>
+        <span class="header-frame header-frame-bottom-right" aria-hidden="true"></span>
+        <div>
+          <p class="eyebrow">Resume</p>
+          <h1>Daniel Parton</h1>
+          <p class="headline">Senior Full-Stack Engineering Lead</p>
+        </div>
+        <div class="contact">
+          <div class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.32 1.76.59 2.6a2 2 0 0 1-.45 2.11L8 9.68a16 16 0 0 0 6.32 6.32l1.25-1.25a2 2 0 0 1 2.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0 1 22 16.92Z" /></svg></span><a class="contact-value" href="tel:+61432520907">+61 432 520 907</a></div>
+          <div class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" /><path d="m22 7-10 6L2 7" /></svg></span><a class="contact-value" href="mailto:daniel.parton@hotmail.com">daniel.parton@hotmail.com</a></div>
+          <div class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 0 20" /><path d="M12 2a15.3 15.3 0 0 0 0 20" /></svg></span><a class="contact-value" href="https://daniel-parton.github.io/portfolio">https://daniel-parton.github.io/portfolio</a></div>
+        </div>
+      </header>
+
+      <section>
+        <h2 class="section-title">Profile</h2>
+        <p class="summary">Senior full-stack engineering leader with 10+ years of experience designing and delivering cloud-native enterprise applications, distributed .NET services, React platforms, and AI-assisted engineering workflows. I combine hands-on implementation with technical leadership, helping teams modernize complex systems, improve delivery practices, and build secure, scalable software across AWS, Azure, and GCP.</p>
+      </section>
+
+      <section class="two-column">
+        <div>
+          <h2 class="section-title">Core Strengths</h2>
+          <ul class="highlight-list">
+            <li>Technical leadership across architecture, implementation, mentoring, and delivery.</li><li>Distributed .NET microservices, event-driven processing, real-time synchronization, and cloud-native application modernization.</li><li>React and TypeScript platform delivery, including shared component libraries and design-system adoption.</li><li>AI-assisted development workflows, multi-agent systems, LLM-ready documentation, and developer productivity tooling.</li><li>Technical discovery, stakeholder advisory, CI/CD, infrastructure automation, observability, testing, and production-quality delivery practices.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="section-title">Skills</h2>
+          <div class="skill-groups">
+            <div class="skill-group"><p class="skill-label">Frontend</p><p class="skills">React, TypeScript, JavaScript, Next.js, Mantine, Nextra, HTML5, CSS</p></div><div class="skill-group"><p class="skill-label">Backend</p><p class="skills">.NET, C#, Node.js, PostgreSQL, Redis, OpenAPI, ReactiveX</p></div><div class="skill-group"><p class="skill-label">Infrastructure</p><p class="skills">AWS, Azure, GCP, Docker, Terraform, GitHub Actions, Octopus Deploy, OpenTelemetry, GitHub Copilot</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-list">
+          <article class="experience-item">
+    <div class="experience-heading">
+      <h3>Software Squad Lead (HaulX) @ Fortescue</h3>
+      <span class="date-range">Sept 2025 - Present (9 mos)</span>
+    </div>
+    <p class="job-summary">HaulX is an enterprise fleet platform for manned and autonomous mining operations. I lead AWS-hosted Offboard .NET microservices, autonomous asset control services, telemetry workflows, and React apps for controllers/operators while staying hands-on across architecture, modernization, and delivery.</p>
+    <p class="stack"><strong>Stack:</strong> AWS, .NET, C#, React, TypeScript, Rx.NET, Event-Driven Architecture, Microservices, Base UI, Fumadocs, npm, Docker Swarm, Octopus Deploy, Azure DevOps</p>
+    <ul class="achievement-list"><li><strong>Lead autonomous asset platform delivery.</strong> Lead the design and delivery of backend services and platform capabilities for autonomous mining operations across Offboard systems and onboard computers.</li><li><strong>Rewrite core autonomous asset control service.</strong> Currently leading the rewrite of the service synchronizing live tasks, permissions, commands, and operational state with autonomous assets.</li><li><strong>Improved distributed event processing performance.</strong> Designed partitioned command and event queues for internal event-driven processing, increasing throughput while preserving ordering guarantees for asset-specific workloads.</li><li><strong>Introduced reactive in-memory data flows.</strong> Applied Rx observables over in-memory stores to improve synchronization of active tasks, permissions, and live asset state for downstream services.</li><li><strong>Built shared UI library.</strong> Partnered with UI/UX to replace legacy HaulX UI with a Figma-aligned React library, npm packages, live docs, and llm.txt/coding-agent migration guidance.</li><li><strong>Owned squad architecture and hiring.</strong> Drove architecture for large HaulX features, translated discovery into tickets, ran client stakeholder closeouts, and interviewed architect/developer hires.</li></ul>
+  </article><article class="experience-item">
+    <div class="experience-heading">
+      <h3>Lead Developer @ Komo Technologies</h3>
+      <span class="date-range">Feb 2021 - Sept 2025 (4 yrs 7 mos)</span>
+    </div>
+    <p class="job-summary">Komo is a gamified marketing SaaS platform for lead generation and audience engagement. I provided technical leadership for a team of five engineers while remaining hands-on across architecture, implementation, mentoring, and delivery.</p>
+    <p class="stack"><strong>Stack:</strong> .NET, React, TypeScript, Next.js, PostgreSQL, Redis, OpenTelemetry, GitHub Actions, Docker, AI Agents</p>
+    <ul class="achievement-list"><li><strong>Architected and modernized the platform.</strong> Led multiple large-scale refactors including migration to Turborepo, reducing main app bundle size by 40%, introducing shared libraries/config, and replacing a legacy component library with Mantine for faster development and light/dark mode support.</li><li><strong>Modernized API architecture.</strong> Transitioned from N-tier to Onion + Mediator pattern, standardizing authorization pipelines, implementing the outbox pattern for reliable event persistence, and reducing unused code.</li><li><strong>Scaled analytics and workflows.</strong> Evolved analytics into an event store model with database projections and transient event subscribers; built a Zapier-like workflow system powered by these events, including a drag-and-drop front-end workflow builder and back-end processing engine leveraging the event store for reliable, real-time execution.</li><li><strong>Accelerated delivery and reduced costs.</strong> Implemented conditional GitHub Actions builds, database CI/CD testing workflows, and Next.js App Router with Turbopack for faster deployments.</li><li><strong>Developed AI content generation system.</strong> Developed a multi-agent AI content generation system that produced interactive campaign experiences, adapted outputs to customer brand data, and provided real-time insights and recommendations.</li><li><strong>Launched the Data Feeds product.</strong> Conceived and delivered the Data Feeds product, enabling multi-page, screen-size-specific layouts with text, images, videos, and live data blocks such as Q&amp;A feeds, leaderboards, and poll results. This innovation elevated live events and secured new business opportunities.</li></ul>
+  </article><article class="experience-item">
+    <div class="experience-heading">
+      <h3>Senior Full Stack Developer @ BHP</h3>
+      <span class="date-range">Oct 2020 - Feb 2021 (4 mos)</span>
+    </div>
+    <p class="job-summary">Contributed to BHP&#39;s Dash project, which equips fitters with devices containing installation instructions and integrated sensors, transmitting data to a web platform accessible via device Wi-Fi.</p>
+    <p class="stack"><strong>Stack:</strong> .NET Core, C#, React, Docker, Azure DevOps, InfluxDB</p>
+    <ul class="achievement-list"><li><strong>Optimized sensor data processing pipeline.</strong> Enhanced .NET Core container performance for parsing high-volume raw sensor data into an Influx database, improving reliability and efficiency.</li><li><strong>Enhanced real-time equipment dashboards.</strong> Created user-friendly gauges and graph controls for a React SPA, improving live data visualization and user experience for field technicians.</li><li><strong>Led knowledge sharing and standards adoption.</strong> Mentored team members on .NET best practices and React fundamentals, promoting consistent coding standards and accelerating onboarding.</li></ul>
+  </article><article class="experience-item">
+    <div class="experience-heading">
+      <h3>Senior Full Stack Developer @ Cash Converters</h3>
+      <span class="date-range">July 2019 - Oct 2020 (1 yr 3 mos)</span>
+    </div>
+    <p class="job-summary">Worked as a full-stack developer in the Personal Finance team, responsible for the loan application process and supporting services.</p>
+    <p class="stack"><strong>Stack:</strong> .NET, C#, TypeScript, CQRS, Rebus, Cypress, CI/CD</p>
+    <ul class="achievement-list"><li><strong>Built event-driven messaging infrastructure.</strong> Designed and implemented a CQRS-based event-driven messaging infrastructure using Rebus, enabling reliable inter-service communication and improving scalability across the platform.</li><li><strong>Refactored and stabilized core loan application platform.</strong> Led a complete overhaul of the main loan web application, migrating from JavaScript to TypeScript, simplifying complex code, and writing comprehensive documentation. Transformed the application from a high-maintenance, error-prone system into a stable, maintainable platform.</li><li><strong>Strengthened quality assurance and release confidence.</strong> Achieved full test coverage for the loan application using Cypress, integrated into the CI/CD pipeline to ensure consistent quality and reduce production issues.</li></ul>
+  </article><article class="experience-item">
+    <div class="experience-heading">
+      <h3>Senior Full Stack Developer @ BHP</h3>
+      <span class="date-range">Apr 2019 - July 2019 (3 mos)</span>
+    </div>
+    <p class="job-summary">During my short contract role, I led the rewriting of small applications from .NET/AngularJS to React/.NET Core, with a focus on mobilization and resource allocation for mine shutdowns.</p>
+    <p class="stack"><strong>Stack:</strong> .NET Core, C#, React, TypeScript, CQRS, Mediator</p>
+    <ul class="achievement-list"><li><strong>Pioneered TypeScript adoption in React projects.</strong> Advocated for and demonstrated TypeScript integration in React applications through examples and technical discussions with principal engineers, leading to its adoption across projects for improved type safety and maintainability.</li><li><strong>Improved CQRS authorization pattern.</strong> Introduced a pattern within the CQRS Mediator to handle authorization via attributes, replacing API-layer checks. This made it easier to test, extend, and run additional validations within mediator actions.</li></ul>
+  </article><article class="experience-item">
+    <div class="experience-heading">
+      <h3>Senior Full Stack Developer @ Diversus</h3>
+      <span class="date-range">Aug 2018 - Apr 2019 (8 mos)</span>
+    </div>
+    <p class="job-summary">Diversus provides software solutions as a service to several organisations mostly in the C# .NET space. I worked as a full-stack developer creating solutions for the front and back end of bespoke web applications.</p>
+    <p class="stack"><strong>Stack:</strong> C#, .NET, JavaScript, SQL</p>
+    
+  </article><article class="experience-item">
+    <div class="experience-heading">
+      <h3>Full Stack Developer @ Clickhome</h3>
+      <span class="date-range">Sept 2016 - Aug 2018 (1 yr 11 mos)</span>
+    </div>
+    <p class="job-summary">ClickHome provides enterprise-level project management software for home builders. I worked as a full-stack developer using C# .NET and AngularJS to build new features for their core application.</p>
+    <p class="stack"><strong>Stack:</strong> C#, .NET, AngularJS, JavaScript, SQL</p>
+    
+  </article>
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>
