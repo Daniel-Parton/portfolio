@@ -25,7 +25,7 @@ export async function generateResumePdf() {
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(htmlOutputPath, resumeHtml, 'utf8');
 
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch(getPuppeteerLaunchOptions());
 
   try {
     const page = await browser.newPage();
@@ -47,6 +47,16 @@ export async function generateResumePdf() {
   } finally {
     await browser.close();
   }
+}
+
+function getPuppeteerLaunchOptions(): Parameters<typeof puppeteer.launch>[0] {
+  if (process.env.GITHUB_ACTIONS !== 'true') {
+    return undefined;
+  }
+
+  return {
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  };
 }
 
 export function renderResumeHtml() {
