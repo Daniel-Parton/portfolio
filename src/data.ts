@@ -60,7 +60,7 @@ export const ResumeProfileData: ResumeProfile = {
   name: 'Daniel Parton',
   headline: 'Senior Full-Stack Engineering Lead',
   summary:
-    'Senior full-stack engineering leader with 10+ years of experience designing and delivering cloud-native enterprise applications, distributed .NET services, React platforms, and AI-assisted engineering workflows. I combine hands-on implementation with technical leadership, helping teams modernize complex systems, improve delivery practices, and build secure, scalable software across AWS, Azure, and GCP.',
+    'Senior full-stack engineering leader with 10+ years of experience designing and delivering cloud-native enterprise applications, distributed .NET services, React platforms, and AI-assisted engineering workflows. I paired hands-on implementation with technical leadership to modernize complex systems, improve delivery practices, and build secure, scalable software across AWS, Azure, and GCP.',
   highlights: [
     'Technical leadership across architecture, implementation, mentoring, and delivery.',
     'Distributed .NET microservices, event-driven processing, real-time synchronization, and cloud-native application modernization.',
@@ -76,7 +76,7 @@ export const HaulXExperience: ExperienceItem = {
   position: 'Software Squad Lead (HaulX)',
   startDate: '2025-09-01',
   summary:
-    'HaulX is an enterprise fleet platform for manned and autonomous mining operations. I lead AWS-hosted Offboard .NET microservices, autonomous asset control services, telemetry workflows, and React apps for controllers/operators while staying hands-on across architecture, modernization, and delivery.',
+    'HaulX is an enterprise fleet platform for manned and autonomous mining operations. In this role, I led AWS-hosted Offboard .NET microservices, autonomous asset control services, telemetry workflows, and React applications for controllers and operators while staying hands-on across architecture, modernization, and delivery.',
   technologies: [
     'AWS',
     '.NET',
@@ -95,34 +95,34 @@ export const HaulXExperience: ExperienceItem = {
   ],
   keyAchievements: [
     {
-      label: 'Lead autonomous asset platform delivery',
+      label: 'Autonomous platform delivery',
       description:
-        'Lead the design and delivery of backend services and platform capabilities for autonomous mining operations across Offboard systems and onboard computers.',
+        'Led the design and delivery of backend services and platform capabilities for autonomous mining operations across Offboard systems and onboard computers.',
     },
     {
-      label: 'Rewrite core autonomous asset control service',
+      label: 'Autonomous asset synchronization service',
       description:
-        'Currently leading the rewrite of the service synchronizing live tasks, permissions, commands, and operational state with autonomous assets.',
+        'Modernized a core service that synchronized live tasks, permissions, commands, and operational state between Offboard systems and autonomous assets.',
     },
     {
-      label: 'Improved distributed event processing performance',
+      label: 'Partitioned event processing',
       description:
         'Designed partitioned command and event queues for internal event-driven processing, increasing throughput while preserving ordering guarantees for asset-specific workloads.',
     },
     {
-      label: 'Introduced reactive in-memory data flows',
+      label: 'Reactive state synchronization',
       description:
         'Applied Rx observables over in-memory stores to improve synchronization of active tasks, permissions, and live asset state for downstream services.',
     },
     {
-      label: 'Built shared UI library',
+      label: 'Shared React UI library',
       description:
-        'Partnered with UI/UX to replace legacy HaulX UI with a Figma-aligned React library, npm packages, live docs, and llm.txt/coding-agent migration guidance.',
+        'Partnered with UI/UX to replace legacy HaulX UI with a Figma-aligned React library, npm packages, live documentation, and LLM-ready coding-agent migration guidance.',
     },
     {
-      label: 'Owned squad architecture and hiring',
+      label: 'Architecture, discovery, and hiring',
       description:
-        'Drove architecture for large HaulX features, translated discovery into tickets, ran client stakeholder closeouts, and interviewed architect/developer hires.',
+        'Drove architecture for large HaulX features, translated discovery into delivery-ready tickets, ran client stakeholder closeouts, and interviewed architect and developer candidates.',
     },
   ],
 };
@@ -134,7 +134,7 @@ export const KomoExperience: ExperienceItem = {
   startDate: '2021-02-01',
   endDate: '2025-09-01',
   summary:
-    'Komo is a gamified marketing SaaS platform for lead generation and audience engagement. I provided technical leadership for a team of five engineers while remaining hands-on across architecture, implementation, mentoring, and delivery.',
+    'Komo is a gamified marketing SaaS platform for lead generation and audience engagement. I provided technical leadership for a five-person engineering team while remaining hands-on across architecture, implementation, mentoring, and delivery.',
   technologies: [
     '.NET',
     'React',
@@ -149,57 +149,57 @@ export const KomoExperience: ExperienceItem = {
   ],
   keyAchievements: [
     {
-      label: 'Architected and modernized the platform',
+      label: 'Platform architecture and modernization',
       description:
         'Led multiple large-scale refactors including migration to Turborepo, reducing main app bundle size by 40%, introducing shared libraries/config, and replacing a legacy component library with Mantine for faster development and light/dark mode support.',
     },
     {
-      label: 'Modernized API architecture',
+      label: 'API architecture modernization',
       description:
         'Transitioned from N-tier to Onion + Mediator pattern, standardizing authorization pipelines, implementing the outbox pattern for reliable event persistence, and reducing unused code.',
     },
     {
-      label: 'Scaled analytics and workflows',
+      label: 'Analytics and workflow scalability',
       description:
         'Evolved analytics into an event store model with database projections and transient event subscribers; built a Zapier-like workflow system powered by these events, including a drag-and-drop front-end workflow builder and back-end processing engine leveraging the event store for reliable, real-time execution.',
     },
     {
-      label: 'Accelerated delivery and reduced costs',
+      label: 'Delivery acceleration and cost reduction',
       description:
         'Implemented conditional GitHub Actions builds, database CI/CD testing workflows, and Next.js App Router with Turbopack for faster deployments.',
     },
     {
-      label: 'Developed AI content generation system',
+      label: 'AI content generation system',
       description:
         'Developed a multi-agent AI content generation system that produced interactive campaign experiences, adapted outputs to customer brand data, and provided real-time insights and recommendations.',
     },
     {
-      label: 'Launched the Data Feeds product',
+      label: 'Data Feeds product launch',
       description:
-        'Conceived and delivered the Data Feeds product, enabling multi-page, screen-size-specific layouts with text, images, videos, and live data blocks such as Q&A feeds, leaderboards, and poll results. This innovation elevated live events and secured new business opportunities.',
+        'Conceived and delivered the Data Feeds product, enabling multi-page, screen-size-specific layouts with text, images, videos, and live data blocks such as Q&A feeds, leaderboards, and poll results. The product elevated live-event experiences and helped secure new business opportunities.',
     },
     {
-      label: 'Built new customer integration paths',
+      label: 'Customer integration paths',
       description:
         'Developed an embeddable SDK for integrating platform content into customer sites with a single script.',
     },
     {
-      label: 'Optimized performance at scale',
+      label: 'Performance optimization at scale',
       description:
         'Introduced distributed caching (Redis) and in-memory caching to drastically reduce API latency for high-traffic endpoints.',
     },
     {
-      label: 'Enhanced observability and quality',
+      label: 'Observability and quality',
       description:
         'Rolled out OpenTelemetry tracing, refactored database migration rules, and created XUnit integration testing scaffolding to increase coverage and developer focus on business rules.',
     },
     {
-      label: 'Led hiring and team growth',
+      label: 'Hiring and team growth',
       description:
         'Managed recruitment end-to-end, onboarded new developers, fostered autonomy, and aligned work with team members’ interests.',
     },
     {
-      label: 'Improved cross-team collaboration',
+      label: 'Cross-team collaboration',
       description:
         'Worked with product, marketing, and CS to prioritize BAU feature requests, enabling faster delivery of small wins and better tracking of recurring big-ticket items.',
     },
@@ -213,26 +213,26 @@ const Bhp1Experience: ExperienceItem = {
   startDate: '2020-10-01',
   endDate: '2021-02-01',
   summary:
-    "Contributed to BHP's Dash project, which equips fitters with devices containing installation instructions and integrated sensors, transmitting data to a web platform accessible via device Wi-Fi.",
+    "Contributed to BHP's Dash project, a field-device platform that provided fitters with installation instructions, captured integrated sensor data, and synchronized results to a web platform over device Wi-Fi.",
   technologies: ['.NET Core', 'C#', 'React', 'Docker', 'Azure DevOps', 'InfluxDB'],
   keyAchievements: [
     {
-      label: 'Optimized sensor data processing pipeline',
+      label: 'Sensor data processing pipeline',
       description:
         'Enhanced .NET Core container performance for parsing high-volume raw sensor data into an Influx database, improving reliability and efficiency.',
     },
     {
-      label: 'Enhanced real-time equipment dashboards',
+      label: 'Real-time equipment dashboards',
       description:
         'Created user-friendly gauges and graph controls for a React SPA, improving live data visualization and user experience for field technicians.',
     },
     {
-      label: 'Led knowledge sharing and standards adoption',
+      label: 'Knowledge sharing and standards adoption',
       description:
         'Mentored team members on .NET best practices and React fundamentals, promoting consistent coding standards and accelerating onboarding.',
     },
     {
-      label: 'Streamlined deployment with CI/CD automation',
+      label: 'CI/CD deployment automation',
       description:
         'Automated Docker container deployment using Azure DevOps, improving delivery speed, reducing manual effort, and ensuring consistent releases.',
     },
@@ -250,22 +250,22 @@ const CashConvertersExperience: ExperienceItem = {
   technologies: ['.NET', 'C#', 'TypeScript', 'CQRS', 'Rebus', 'Cypress', 'CI/CD'],
   keyAchievements: [
     {
-      label: 'Built event-driven messaging infrastructure',
+      label: 'Event-driven messaging infrastructure',
       description:
         'Designed and implemented a CQRS-based event-driven messaging infrastructure using Rebus, enabling reliable inter-service communication and improving scalability across the platform.',
     },
     {
-      label: 'Refactored and stabilized core loan application platform',
+      label: 'Core loan application platform stabilization',
       description:
         'Led a complete overhaul of the main loan web application, migrating from JavaScript to TypeScript, simplifying complex code, and writing comprehensive documentation. Transformed the application from a high-maintenance, error-prone system into a stable, maintainable platform.',
     },
     {
-      label: 'Strengthened quality assurance and release confidence',
+      label: 'Quality assurance and release confidence',
       description:
         'Achieved full test coverage for the loan application using Cypress, integrated into the CI/CD pipeline to ensure consistent quality and reduce production issues.',
     },
     {
-      label: 'Mentored and upskilled junior developers',
+      label: 'Junior developer mentoring',
       description:
         'Provided guidance on development best practices, fostering skill growth, ownership, and confidence within the team.',
     },
@@ -283,12 +283,12 @@ const Bhp2Experience: ExperienceItem = {
   technologies: ['.NET Core', 'C#', 'React', 'TypeScript', 'CQRS', 'Mediator'],
   keyAchievements: [
     {
-      label: 'Pioneered TypeScript adoption in React projects',
+      label: 'TypeScript adoption in React projects',
       description:
         'Advocated for and demonstrated TypeScript integration in React applications through examples and technical discussions with principal engineers, leading to its adoption across projects for improved type safety and maintainability.',
     },
     {
-      label: 'Improved CQRS authorization pattern',
+      label: 'CQRS authorization pattern',
       description:
         'Introduced a pattern within the CQRS Mediator to handle authorization via attributes, replacing API-layer checks. This made it easier to test, extend, and run additional validations within mediator actions.',
     },
@@ -302,7 +302,7 @@ const DiversusExperience: ExperienceItem = {
   startDate: '2018-08-01',
   endDate: '2019-04-01',
   summary:
-    'Diversus provides software solutions as a service to several organisations mostly in the C# .NET space. I worked as a full-stack developer creating solutions for the front and back end of bespoke web applications.',
+    'Worked as a full-stack developer at Diversus, delivering front-end and back-end features for bespoke C# .NET web applications across multiple client organizations.',
   technologies: ['C#', '.NET', 'JavaScript', 'SQL'],
 };
 
@@ -313,7 +313,7 @@ const ClickhomeExperience: ExperienceItem = {
   startDate: '2016-09-01',
   endDate: '2018-08-01',
   summary:
-    'ClickHome provides enterprise-level project management software for home builders. I worked as a full-stack developer using C# .NET and AngularJS to build new features for their core application.',
+    'Worked as a full-stack developer at ClickHome, building C# .NET and AngularJS features for enterprise project management software used by home builders.',
   technologies: ['C#', '.NET', 'AngularJS', 'JavaScript', 'SQL'],
 };
 
